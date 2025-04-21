@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  cifar-dev:
+    build: .
+    volumes:
+      - .:/app  # Mapea tu proyecto local al contenedor
+    working_dir: /app
+    tty: true
+    stdin_open: true
