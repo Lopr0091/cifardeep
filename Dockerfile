@@ -19,3 +19,9 @@ RUN pip install --upgrade pip && pip install -r /tmp/requirements.txt
 
 RUN pip install --upgrade pip && \
     pip install --extra-index-url https://download.pytorch.org/whl/cu118 -r /tmp/requirements.txt
+
+RUN apt-get update && apt-get install -y curl
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
+
+RUN apt-get update && apt-get install -y build-essential gcc libffi-dev libssl-dev libyaml-dev
